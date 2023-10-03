@@ -1,0 +1,3 @@
+<!ELEMENT videoclub (peliculas)*>
+<!ELEMENT peliculas (pelicula)?>
+<!ELEMENT pelicula EMPTY>

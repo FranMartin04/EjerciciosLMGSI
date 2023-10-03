@@ -1,3 +1,22 @@
 <!ELEMENT videoclub (peliculas)*>
-<!ELEMENT peliculas (pelicula)?>
-<!ELEMENT pelicula EMPTY>
+<!ELEMENT peliculas (pelicula , tipo ,(Existente|Inexistente)?)>
+<!ELEMENT pelicula (#PCDATA | precio)*>
+<!ELEMENT precio EMPTY>
+<!ELEMENT tipo ANY>
+<!ELEMENT Existente EMPTY>
+<!ELEMENT Inexixtente EMPTY>
+<!ELEMENT oferta EMPTY>
+<!ATTLIST pelicula nombre ID #REQUIRED
+                    estado (alquilada | vendida) "alquilada"
+                    numserie ID #REQUIRED
+                    codigo ID #REQUIRED >
+<!ATTLIST videoclub direccion CDATA #IMPLIED 
+                      nombre CDATA #REQUIRED
+                      telefono CDATA #FIXED "957773212">
+<!ATTLIST tipo numserie  IDREF #REQUIRED
+                     codigopelicula IDREFS #IMPLIED>
+<!ENTITY plataforma "DVD">
+<!ENTITY % atributoCoste "coste CDATA #IMPLIED"> 
+<!ATTLIST precio %atributoCoste;>
+
+                      

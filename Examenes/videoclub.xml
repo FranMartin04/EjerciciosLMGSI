@@ -1,2 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE superheroes SYSTEM "videoclub.dtd">
+<!DOCTYPE videoclub SYSTEM "videoclub.dtd">
+<videoclub direccion="Calle España" nombre="El Taquillazo" telefono="957773212">
+    <peliculas>
+        <pelicula nombre = "Titanic" estado="vendida" numserie="A632" codigo="Tic">
+            Platforma para verla: &plataforma;
+            <precio coste="5"/> 
+    </pelicula>
+        <tipo numserie="A632" codigopelicula="Tic A632"></tipo>
+    </peliculas>
+</videoclub>

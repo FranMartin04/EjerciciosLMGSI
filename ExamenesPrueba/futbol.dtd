@@ -1,0 +1,7 @@
+<!ELEMENT futbol (ligas)*>
+<!ELEMENT ligas ANY>
+
+<!ATTLIST ligas nombre CDATA #REQUIRED
+                pais CDATA #IMPLIED
+                region CDATA #FIXED "Europa">
+                      

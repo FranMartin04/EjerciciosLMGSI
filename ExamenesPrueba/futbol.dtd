@@ -1,7 +1,22 @@
-<!ELEMENT futbol (ligas)*>
-<!ELEMENT ligas ANY>
-
+<!ELEMENT futbol (ligas|CampeonesChampions)*>
+<!ELEMENT ligas (#PCDATA|equipo)*>
+<!ELEMENT equipo (Division|estadio|aficion)+>
+<!ELEMENT Division (primera?,segunda?,(tercera|cuarta)?)>
+<!ELEMENT primera EMPTY>
+<!ELEMENT segunda EMPTY>
+<!ELEMENT tercera EMPTY>
+<!ELEMENT cuarta EMPTY>
+<!ELEMENT CampeonesChampions EMPTY>
+<!ELEMENT estadio EMPTY>
+<!ELEMENT aficion EMPTY>
 <!ATTLIST ligas nombre CDATA #REQUIRED
                 pais CDATA #IMPLIED
                 region CDATA #FIXED "Europa">
-                      
+<!ATTLIST equipo región (Europa|America|Asia|Oceania|Africa) "Europa"
+                nombre ID #REQUIRED
+                rivalChampions IDREF #IMPLIED>
+<!ATTLIST CampeonesChampions Campeones IDREFS #IMPLIED>
+<!ENTITY presidente "Javier Tebas">
+<!ENTITY % atributoNombre "nombre CDATA #REQUIRED">
+<!ATTLIST estadio %atributoNombre;>
+<!ATTLIST aficion %atributoNombre;> 

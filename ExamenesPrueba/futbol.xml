@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE futbol SYSTEM "futbol.dtd">
 <futbol>
-    <ligas nombre="LaLiga" pais="España" region="Europa"></ligas>
+    <ligas nombre="LaLiga" pais="España" region="Europa">
+        Liga Española de &presidente;
+        <equipo región="Europa" nombre="Madrid" rivalChampions="Liverpool">
+            <Division>
+                <primera></primera>
+            </Division>
+            <estadio nombre="Santiago Bernabéu"/>
+            <aficion nombre="VIKINGOS"/>
+        </equipo>
+    </ligas>
+    <ligas nombre="Premier League" pais="Inglaterra" region="Europa">
+        Liga Española
+        <equipo región="Europa" nombre="Liverpool" rivalChampions="Madrid">
+            <Division>
+                <primera></primera>
+            </Division>
+            <estadio nombre="Anfield"/>
+            <aficion nombre="THE REDS"/>
+        </equipo>
+    </ligas>
+    <CampeonesChampions Campeones="Madrid Liverpool"/>
 </futbol>

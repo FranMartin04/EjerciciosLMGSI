@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE cartas SYSTEM "cartascoleccionables.dtd">
+<cartas>
+    <presentacion>
+        <nombredeljuego nombre="Las aventuras deserticas con cartas" />
+        <nombredelaempresa nombre="FranciscoEnterprise" />
+    </presentacion>
+    <personajes>
+        <personaje nombre="mago" colorTraje="Rojo" altura="1,80" hermandad="Fuego">
+            <habilidad nombre="Bola_Fuego" debilidad="Flecha_Divina" />
+        </personaje>
+        <personaje nombre="arquero" altura="1,60" colorTraje="Azul">
+            <habilidad nombre="Flecha_Divina" debilidad="Bola_Fuego" />
+        </personaje>
+        <lugardeltablero> Desierto de &suelo; <velocidadDelLugar>Avance de dos casillas por cada
+            tirada</velocidadDelLugar>
+        </lugardeltablero>
+        <dado />
+    </personajes>
+    <mejoresHabilidades habilidades="Bola_Fuego Flecha_Divina" />
+</cartas>

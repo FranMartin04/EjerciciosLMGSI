@@ -1,0 +1,23 @@
+<!ELEMENT cartas (presentacion,personajes,mejoresHabilidades)+>
+<!ELEMENT personajes (personaje*,lugardeltablero?,(dado|peonza)?)>
+<!ELEMENT personaje (habilidad)>
+<!ELEMENT lugardeltablero (#PCDATA|velocidadDelLugar)*>
+<!ELEMENT dado EMPTY>
+<!ELEMENT peonza EMPTY>
+<!ELEMENT velocidadDelLugar (#PCDATA)>
+<!ELEMENT habilidad EMPTY>
+<!ELEMENT mejoresHabilidades EMPTY>
+<!ELEMENT presentacion (nombredeljuego,nombredelaempresa)>
+<!ELEMENT nombredeljuego EMPTY>
+<!ELEMENT nombredelaempresa EMPTY>
+<!ATTLIST personaje nombre (mago | caballero | arquero | curandero) "mago"
+                    colorTraje CDATA #IMPLIED
+                    altura CDATA #REQUIRED
+                    hermandad CDATA #FIXED "Fuego">
+<!ATTLIST habilidad nombre ID #REQUIRED
+                    debilidad IDREF #IMPLIED>
+<!ATTLIST mejoresHabilidades habilidades IDREFS #IMPLIED>
+<!ENTITY suelo "Arenas Movedizas">
+<!ENTITY % atributoNombre "nombre CDATA #REQUIRED">
+<!ATTLIST nombredeljuego %atributoNombre;>
+<!ATTLIST nombredelaempresa %atributoNombre;> 

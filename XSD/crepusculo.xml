@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<crepusculo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:noNamespaceSchemaLocation="crepusculo.xsd">
+    Crepusculo
+    <personaje nombre="Edward" relacionCon="Bella" rol="protagonista"/>
+    <personaje nombre="Jacob" enemigo="Emmett"/>
+    <personaje nombre="Bella"/>
+    <personaje nombre="Emmett" enemigo="Jacob"/>
+    <parte>
+		<nombre>I</nombre>
+		<escenario nombre="Forks (WAshington)" />
+		<puntuacion>
+			<valoracion>Una web que le da un 3,4/5</valoracion>
+			<valoracion>Una web que le da un 4,8/10</valoracion>
+		</puntuacion>
+        <pais />
+	</parte>
+    <acontecimiento></acontecimiento>
+</crepusculo>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"> 
+<xs:element name="crepusculo" type="tipoSerie"/>
+<xs:complexType name="tipoSerie" mixed="true">
+    <xs:sequence>
+      <xs:element name="personaje" maxOccurs="unbounded"/>
+      <xs:element  name="parte" type="tipoParte" maxOccurs="unbounded"/>
+      <xs:element name="acontecimiento"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoAtributoNombre">
+    <xs:attribute name="nombre" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="masAtributos">
+    <xs:complexContent>
+      <xs:extension base="tipoAtributoNombre">
+        <xs:attribute name="relacionCon" type="xs:string"/>
+        <xs:attribute name="enemigo" type="tipoAtributoEnemigoPorPattern"/>
+        <xs:attribute name="rol" type="xs:string"/>
+          </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>  
+  <xs:simpleType name="tipoAtributoEnemigoPorPattern">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="((Emmett)|(Jacob)|( )){1,}"/>      
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="tipoParte">
+    <xs:all>
+      <xs:element name="nombre" type="tipoNombreDeParte"/>
+      <xs:element name="escenario" minOccurs="0" type="tipoAtributoNombre"/>
+      <xs:element name="pais" minOccurs="0" type="tipoAtributoNombre"/>
+      <xs:element name="puntuacion" type="tipoPuntuación"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:simpleType name="tipoNombreDeParte">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[I]{1,5}[ - ]?.*"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="tipoPuntuación">
+    <xs:sequence>
+      <xs:element name="valoracion" type="xs:string" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoLugar">
+    <xs:choice>
+      <xs:element name="acontecimiento" maxOccurs="unbounded" />
+      <xs:element name="personasEnLugar" />
+    </xs:choice>
+    <xs:attribute name="nombre" type="xs:string"/>
+  </xs:complexType>
+</xs:schema>

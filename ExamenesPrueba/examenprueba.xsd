@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Punto 1: Elemento cuyo contenido es vacío -->
+  <xs:element name="elementoVacio" type="xs:empty"/>
+
+  <!-- Punto 2: Elemento con contenido mixto -->
+  <xs:element name="elementoMixto" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+
+  <!-- Punto 3: Elemento con atributos de diferentes tipos primitivos -->
+  <xs:element name="elementoConAtributos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="subelemento" type="xs:string"/>
+      </xs:sequence>
+      <xs:attribute name="cadena" type="xs:string"/>
+      <xs:attribute name="numero" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- Punto 4: Elemento con atributos y contenido texto -->
+  <xs:element name="elementoConAtributosYContenido" type="xs:string"/>
+
+  <!-- Punto 5: Elemento con atributos y contenido de tipo numérico -->
+  <xs:element name="elementoConAtributosYContenidoNumerico">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:integer">
+          <xs:attribute name="atributo" type="xs:string"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- Punto 6: Uso de xs:sequence, xs:choice y xs:all -->
+  <xs:element name="elementoSecuencia">
+    <xs:complexType>
+      <xs:sequence>
+        <!-- Contenido de secuencia -->
+      </xs:sequence>
+      <xs:choice>
+        <!-- Contenido de choice -->
+      </xs:choice>
+      <xs:all>
+        <!-- Contenido de all -->
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- Punto 7: Atributo con valores de una lista -->
+  <xs:attribute name="atributoLista">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="valor1"/>
+        <xs:enumeration value="valor2"/>
+        <!-- Agregar más valores según sea necesario -->
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+
+  <!-- Punto 8: Atributo con contenido numérico dentro de un intervalo -->
+  <xs:attribute name="atributoIntervalo" type="xs:integer">
+    <xs:simpleType>
+      <xs:restriction base="xs:integer">
+        <xs:minInclusive value="100"/>
+        <xs:maxInclusive value="1000"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+
+  <!-- Punto 9: Expresión regular para tipos de datos específicos -->
+  <xs:element name="expresionRegular">
+    <xs:complexType>
+      <xs:attribute name="codigoUsuario" type="codigoUsuarioType"/>
+      <xs:attribute name="matricula" type="matriculaType"/>
+      <xs:attribute name="direccionMAC" type="direccionMACType"/>
+      <xs:attribute name="color" type="colorType"/>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- Punto 10a: Expresión regular para código de usuario -->
+  <xs:simpleType name="codigoUsuarioType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Za-z]{1}[A-Za-z]{3}[A-Za-z]{3}\d{3}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Punto 10b: Expresión regular para matrícula de coche española -->
+  <xs:simpleType name="matriculaType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Z]{3}\d{4}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Punto 10c: Expresión regular para dirección MAC -->
+  <xs:simpleType name="direccionMACType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="([0-9A-Fa-f]{2}:){5}[0-9A-Fa-f]{2}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Punto 10d: Expresión regular para serie de colores -->
+  <xs:simpleType name="colorType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="rojo"/>
+      <xs:enumeration value="azul"/>
+      <!-- Agregar más colores según sea necesario -->
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Punto 11: Tipo de datos simple creado con xs:union -->
+  <xs:simpleType name="unionType">
+    <xs:union memberTypes="xs:string xs:integer"/>
+  </xs:simpleType>
+
+  <!-- Punto 12: Tipo de datos simple creado con xs:list -->
+  <xs:simpleType name="listType">
+    <xs:list itemType="xs:string"/>
+  </xs:simpleType>
+
+  <!-- Punto 13: Tipo de datos simple derivado y complejo derivado -->
+  <xs:simpleType name="derivedType" base="xs:string"/>
+  <xs:complexType name="complexDerivedType" mixed="true">
+    <xs:simpleContent>
+      <xs:extension base="derivedType">
+        <!-- Añadir atributos o elementos adicionales según sea necesario -->
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+</xs:schema>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="simpsons" type="tipoSimpson"/>
+
+  <xs:complexType name="tipoSimpson" mixed="true">
+    <xs:all>
+      <xs:element name="familia" type="tipoFamilia" maxOccurs="1"/>
+      <xs:element name="lugares" />
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="tipoFamilia">
+    <xs:sequence>
+      <xs:element name="miembro" type="tipoMiembro" maxOccurs="unbounded"/>
+      <xs:element name="mascota"/>
+    </xs:sequence>
+    <xs:attribute name="nombre" type="xs:string"/>
+    <xs:attribute name="countPersonas" type="xs:integer"/>
+  </xs:complexType>
+  <xs:simpleType name="tipoMiembro">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Homer"/>
+      <xs:enumeration value="Marge"/>
+      <xs:enumeration value="Bart"/>
+      <xs:enumeration value="Lisa"/>
+      <xs:enumeration value="Maggie"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

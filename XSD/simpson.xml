@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simpsons xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:noNamespaceSchemaLocation="simpson.xsd">
+Los Simpsons
+<familia>
+    <miembro>Homer</miembro>
+    <mascota></mascota>
+</familia>
+<lugares>
+
+</lugares>
+
+</simpsons>

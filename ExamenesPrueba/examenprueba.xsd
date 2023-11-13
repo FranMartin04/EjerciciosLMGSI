@@ -2,10 +2,11 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
   <!-- Punto 1: Elemento cuyo contenido es vacío -->
-  <xs:element name="elementoVacio" type="xs:empty"/>
+  <xs:element name="elementoVacio" type="tipoVacio"/>
+  <xs:complexType name="tipoVacio"></xs:complexType>
 
   <!-- Punto 2: Elemento con contenido mixto -->
-  <xs:complexType><xs:element name="elementoMixto" type="xs:string" mixed="true"/></xs:complexType>
+  <xs:complexType  name="tipoMixto" mixed="true" ></xs:complexType>
 
 
   <!-- Punto 3: Elemento con atributos de diferentes tipos primitivos -->

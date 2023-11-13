@@ -5,7 +5,8 @@
   <xs:element name="elementoVacio" type="xs:empty"/>
 
   <!-- Punto 2: Elemento con contenido mixto -->
-  <xs:element name="elementoMixto" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+  <xs:complexType><xs:element name="elementoMixto" type="xs:string" mixed="true"/></xs:complexType>
+
 
   <!-- Punto 3: Elemento con atributos de diferentes tipos primitivos -->
   <xs:element name="elementoConAtributos">

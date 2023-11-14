@@ -1,0 +1,100 @@
+<xs:complexType name="tipoRegalo" mixed="true">
+    <xs:sequence>
+      <xs:element name="url" maxOccurs="unbounded" type="tipoUrl"/>
+      <xs:element name="marca" type="marcaType"/>
+    </xs:sequence>
+    <xs:attribute name="codigo" type="xs:string" use="required"/>
+    <xs:attribute name="precio" type="xs:string" use="required"/>
+    <xs:attribute name="iva" type="xs:string" use="required"/>
+    <xs:attribute name="descuento" type="tipoDescuento" use="required"/>
+  </xs:complexType>
+
+  <!-- Punto 3: Elemento mixto con contenido validado con patrón -->
+  <xs:complexType name="tipoUrl">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="tipo" type="xs:string" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <!-- Punto 4: Elemento con atributos -->
+  <xs:complexType name="marcaType">
+    <xs:choice>
+      <xs:element name="mattel" minOccurs="0"/>
+      <xs:element name="giochiPreziosi" minOccurs="0"/>
+    </xs:choice>
+  </xs:complexType>
+
+  <!-- Punto 5: Uso de xs:sequence -->
+  <!-- Ventajas: Garantiza el orden de los elementos. Inconvenientes: Puede hacer el esquema más rígido. -->
+  <xs:complexType name="tipoDescuento">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:pattern value="\d{3}[a-zA-Z]{3}"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <!-- Punto 6: Uso de xs:choice -->
+  <!-- Ventajas: Permite elegir entre opciones mutuamente excluyentes. Inconvenientes: Puede ser limitante. -->
+  <xs:complexType name="descuentoUnionType">
+    <xs:union memberTypes="descuento15Type descuento20Type"/>
+  </xs:complexType>
+
+  <xs:simpleType name="descuento15Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="15%"/>
+      <xs:enumeration value="10%"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="descuento20Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="20%"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Punto 7: Uso de xs:list -->
+  <xs:simpleType name="descuentosAplicablesType">
+    <xs:list itemType="xs:string"/>
+  </xs:simpleType>
+
+  <!-- Punto 8: Derivación de tipos de datos simples -->
+  <xs:simpleType name="precioType">
+    <xs:restriction base="xs:float">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="10000"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="tipoIva">
+    <xs:restriction base="xs:int">
+      <xs:maxExclusive value="50"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Punto 9: Derivación de tipos de datos complejos -->
+  <xs:complexType name="regaloBaseType">
+    <xs:sequence>
+      <xs:element name="url" maxOccurs="unbounded" type="urlType"/>
+    </xs:sequence>
+    <xs:attribute name="codigo" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="regaloType">
+    <xs:complexContent>
+      <xs:extension base="regaloBaseType">
+        <xs:attribute name="precio" type="precioType" use="required"/>
+        <xs:attribute name="iva" type="tipoIva" use="required"/>
+        <xs:attribute name="descuento" type="descuentoUnionType" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="tipoBombazo" mixed="true">
+    <xs:sequence>
+      <xs:element name="url" maxOccurs="unbounded" type="urlType"/>
+    </xs:sequence>
+    <xs:attribute name="codigo" type="xs:string" use="required"/>
+  </xs:complexType>

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Definición del Esquema XML -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Define el elemento raíz -->
+  <xs:element name="ofertasBlackFriday" type="tipoOfertasBlackFriday"/>
+
+  <!-- Define el tipo complejo para 'ofertasBlackFriday' -->
+  <xs:complexType name="tipoOfertasBlackFriday">
+    <xs:sequence>
+      <!-- Define el elemento 'articulo' como parte de la secuencia -->
+      <xs:element name="articulo" type="tipoArticulo"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Define el tipo complejo para 'tipoArticulo' -->
+  <xs:complexType name="tipoArticulo" mixed="true">
+    <xs:all>
+      <!-- Define varios elementos como parte de 'tipoArticulo' -->
+      <xs:element name="fabricante" type="tipoFabricante"/> 
+      <xs:element name="oferta" type="tipoOferta"/> 
+      <xs:element name="valoraciones" type="tipoValoraciones"/> 
+      <xs:element name="preguntas" type="tipoPreguntas"/> 
+      <xs:element name="agregadoACestaDeCompra"/> 
+    </xs:all>
+    <!-- Define un atributo 'codigo' para 'tipoArticulo' -->
+    <xs:attribute name="codigo" type="xs:string"/>
+  </xs:complexType>
+
+  <!-- Define el tipo complejo para 'tipoPreguntas' -->
+  <xs:complexType name="tipoPreguntas">
+    <xs:sequence>
+      <!-- Define el elemento 'pregunta' como parte de la secuencia -->
+      <xs:element name="pregunta" type="tipoPregunta"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Define el tipo complejo para 'tipoPregunta' -->
+  <xs:complexType name="tipoPregunta">
+    <xs:complexContent>
+      <!-- Extiende 'tipoAutorTexto' -->
+      <xs:extension base="tipoAutorTexto">
+        <xs:sequence>
+          <!-- Define el elemento 'respuestas' como parte de la extensión -->
+          <xs:element name="respuestas" type="tipoRespuestas" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!-- Define el tipo complejo para 'tipoRespuestas' -->
+  <xs:complexType name="tipoRespuestas">
+    <xs:sequence>
+      <!-- Define el elemento 'respuesta' como parte de la secuencia -->
+      <xs:element name="respuesta" type="tipoRespuesta"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Define el tipo complejo para 'tipoRespuesta' con contenido mixto -->
+  <xs:complexType name="tipoRespuesta" mixed="true">
+    <xs:all>
+      <!-- Define varios elementos como parte de 'tipoRespuesta' -->
+      <xs:element name="votantesEnPositivo" type="tipoListaNombres"/>
+      <xs:element name="votantesEnNegativo" type="tipoListaNombres"/>
+    </xs:all>
+    <!-- Define un atributo 'autor' para 'tipoRespuesta' -->
+    <xs:attribute name="autor" type="tipoAutor"/>
+  </xs:complexType>
+
+  <!-- Define un tipo simple para 'tipoListaNombres' -->
+  <xs:simpleType name="tipoListaNombres">
+    <xs:list itemType="tipoAutor"/>
+  </xs:simpleType>
+
+  <!-- Define el tipo complejo para 'tipoValoraciones' -->
+  <xs:complexType name="tipoValoraciones">
+    <xs:all>
+      <!-- Define varios elementos como parte de 'tipoValoraciones' -->
+      <xs:element name="positiva" type="tipoAutorTexto"/>
+      <xs:element name="negativa" type="tipoAutorTexto"/>
+      <xs:element name="masVotada" type="tipoMasVotada"/>
+    </xs:all>
+  </xs:complexType>
+
+  <!-- Define el tipo complejo para 'tipoMasVotada' -->
+  <xs:complexType name="tipoMasVotada">
+    <xs:complexContent>
+      <!-- Extiende 'tipoAutorTexto' -->
+      <xs:extension base="tipoAutorTexto">
+        <xs:sequence>
+          <!-- Define el elemento 'fecha' como parte de la secuencia -->
+          <xs:element name="fecha" type="tipoFecha" />
+        </xs:sequence>
+        <!-- Define atributos para 'tipoMasVotada' -->
+        <xs:attribute name="votosFavorables" type="xs:integer"/>
+        <xs:attribute name="votosDesfavorables" type="xs:integer"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <!-- Define un tipo simple para 'tipoFecha' -->
+  <xs:simpleType name="tipoFecha">
+    <xs:restriction base="xs:string">
+      <!-- Define una restricción de patrón para la fecha -->
+      <xs:pattern value="[0-9]{1,2}[/][0-9]{1,2}[/][0-9]{4}[ ][0-9]{2}[:][0-9]{2}[:][0-9]{2}[ ]((AM)|(PM))"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Define el tipo complejo para 'tipoAutorTexto' -->
+  <xs:complexType name="tipoAutorTexto">
+    <xs:sequence>
+      <!-- Define los elementos 'autor' y 'texto' como parte de la secuencia -->
+      <xs:element name="autor" type="tipoAutor"/>
+      <xs:element name="texto" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Define un tipo simple para 'tipoNombreMasc' -->
+  <xs:simpleType name="tipoNombreMasc">
+    <xs:restriction base="xs:string">
+      <!-- Define enumeraciones para nombres masculinos -->
+      <xs:enumeration value="Pedro"/>
+      <xs:enumeration value="Javier"/>
+      <xs:enumeration value="Álvaro"/>
+      <xs:enumeration value="Gonzalo"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Define un tipo simple para 'tipoNombreFem' -->
+  <xs:simpleType name="tipoNombreFem">
+    <xs:restriction base="xs:string">
+      <!-- Define enumeraciones para nombres femeninos -->
+      <xs:enumeration value="Araceli"/>
+      <xs:enumeration value="Lucía"/>
+      <xs:enumeration value="Silvia"/>
+      <xs:enumeration value="Inma"/>
+      <xs:enumeration value="Estela"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Define un tipo simple para 'tipoAutor' que es una unión de nombres masculinos y femeninos -->
+  <xs:simpleType name="tipoAutor">
+    <xs:union memberTypes="tipoNombreMasc tipoNombreFem"/>
+  </xs:simpleType>
+
+  <!-- Define el tipo complejo para 'tipoOferta' con contenido mixto -->
+  <xs:complexType name="tipoOferta" mixed="true">
+    <!-- Define atributos para 'tipoOferta' -->
+    <xs:attribute name="precioHabitual" type="xs:integer"/>
+    <xs:attribute name="descuento" type="tipoPorCiento"/>
+  </xs:complexType>
+
+  <!-- Define un tipo simple para 'tipoPorCiento' -->
+  <xs:simpleType name="tipoPorCiento">
+    <xs:restriction base="xs:string">
+      <!-- Define una restricción de patrón para el formato de porcentaje -->
+      <xs:pattern value="[0-9]+[%]"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Define el tipo complejo para 'tipoFabricante' -->
+  <xs:complexType name="tipoFabricante">
+    <xs:choice>
+      <!-- Define elementos para diferentes fabricantes -->
+      <xs:element name="canon" type="vacio"/>
+      <xs:element name="epson" type="vacio"/>
+      <xs:element name="samsung" type="vacio"/>
+      <xs:element name="apple" type="vacio"/>
+      <xs:element name="philips" type="vacio"/>
+    </xs:choice>
+  </xs:complexType>
+
+  <!-- Define un tipo complejo vacío 'vacio' -->
+  <xs:complexType name="vacio"></xs:complexType>
+</xs:schema>

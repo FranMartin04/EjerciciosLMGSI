@@ -1,0 +1,263 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- 1. Contenido Vacío -->
+  <xs:element name="tiendaMascotas">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="mamiferos">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="mamifero">
+                <xs:complexType>
+                  <xs:sequence>
+                    <!-- Se establece minOccurs="0" para permitir contenido vacío -->
+                    <xs:element name="nombre" type="xs:string" minOccurs="0"/>
+                    <!-- Otros elementos de mamifero -->
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <!-- 2. Elemento Mixto -->
+        <xs:element name="reptiles">
+          <xs:complexType>
+            <xs:sequence>
+              <!-- Se utiliza mixed="true" para permitir contenido mixto -->
+              <xs:element name="reptil" type="mixedReptilType" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <!-- 3. Elemento Mixto con Patrón -->
+        <xs:element name="mamifero">
+          <xs:complexType>
+            <xs:sequence>
+              <!-- Se utiliza un patrón para validar el contenido -->
+              <xs:element name="nombre" type="nombreType"/>
+              <!-- Otros elementos de mamifero -->
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <!-- 4. Elemento con Atributos -->
+        <xs:element name="direccion">
+          <xs:complexType>
+            <xs:sequence>
+              <!-- Definir elementos dentro de dirección -->
+            </xs:sequence>
+            <!-- Definir atributos para el elemento -->
+            <xs:attribute name="calle" type="xs:string"/>
+            <xs:attribute name="ciudad" type="xs:string"/>
+            <!-- Otros atributos -->
+          </xs:complexType>
+        </xs:element>
+
+        <!-- 5. Uso de <xs:sequence> -->
+        <xs:element name="direccion">
+          <xs:complexType>
+            <!-- Uso de <xs:sequence> para definir el orden de los elementos -->
+            <xs:sequence>
+              <xs:element name="calle" type="xs:string"/>
+              <xs:element name="ciudad" type="xs:string"/>
+              <!-- Otros elementos dentro de dirección -->
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <!-- 6. Uso de <xs:choice> -->
+        <xs:element name="mamifero">
+          <xs:complexType>
+            <xs:sequence>
+              <!-- Uso de <xs:choice> para permitir solo uno de los elementos hijos -->
+              <xs:choice>
+                <xs:element name="perro"/>
+                <xs:element name="orca"/>
+                <xs:element name="delfin"/>
+              </xs:choice>
+              <!-- Otros elementos de mamifero -->
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <!-- 7. Uso de <xs:all> -->
+        <xs:element name="reptil">
+          <xs:complexType>
+            <xs:all>
+              <!-- Uso de <xs:all> para permitir que los elementos aparezcan en cualquier orden -->
+              <xs:element name="nombre" type="xs:string"/>
+              <xs:element name="tipo" type="xs:string"/>
+              <!-- Otros elementos dentro de reptil -->
+            </xs:all>
+          </xs:complexType>
+        </xs:element>
+
+        <!-- 8. Uso de pattern para el atributo "valor" -->
+        <xs:element name="mamifero">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nombre" type="nombreType"/>
+              <!-- Otros elementos de mamifero -->
+            </xs:sequence>
+            <xs:attribute name="valor" type="valorType"/>
+          </xs:complexType>
+        </xs:element>
+
+        <!-- 9. Uso de <xs:union> -->
+            
+        <xs:attribute name="unidadMedida" type="unionUnidadMedidaType"/>
+
+        <!-- 10. Uso de <xs:list> -->
+        <xs:element name="unidadesMedida">
+          <xs:simpleType>
+            <!-- Uso de <xs:list> para definir una lista de valores permitidos -->
+            <xs:list itemType="unidadMedidaType"/>
+          </xs:simpleType>
+        </xs:element>
+
+        <!-- 11. Derivación de Tipos de Datos Simples -->
+        <xs:element name="reptil">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="longitud" type="longitudType"/>
+              <xs:element name="peso" type="pesoType"/>
+              <!-- Otros elementos dentro de reptil -->
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <!-- 12. Derivación de Tipos de Datos Complejos -->
+        <xs:element name="direccion" type="direccionType"/>
+        <xs:element name="cliente" type="clienteType"/>
+
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- Definición de Tipos Adicionales -->
+
+  <!-- Definición de tipo para contenido mixto -->
+  <xs:complexType name="mixedReptilType" mixed="true">
+    <xs:sequence>
+      <!-- Definir elementos mixtos dentro de reptil -->
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Definición de tipo para nombre con patrón -->
+  <xs:simpleType name="nombreType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Z]{3}-\(\d{5}\)"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Definición de tipo para valor con pattern -->
+  <xs:simpleType name="valorType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value=".+"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Definición de tipo para unidad de medida -->
+  <xs:simpleType name="unidadMedidaType">
+    <xs:union memberTypes="xs:string">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="mm"/>
+          <xs:enumeration value="cm"/>
+          <xs:enumeration value="dm"/>
+          <xs:enumeration value="m"/>
+          <xs:enumeration value="kg"/>
+          <xs:enumeration value="dias"/>
+          <xs:enumeration value="semanas"/>
+          <xs:enumeration value="meses"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+
+  <!-- Definición de tipo para unión de unidad de medida -->
+  <xs:simpleType name="unionUnidadMedidaType">
+    <xs:union memberTypes="mmType cmType dmType mType kgType diasType semanasType mesesType"/>
+  </xs:simpleType>
+
+  <!-- Definición de tipos específicos para cada unidad de medida -->
+  <xs:simpleType name="mmType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="mm"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="cmType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="cm"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="dmType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="dm"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="m"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="kgType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="kg"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="diasType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="dias"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="semanasType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="semanas"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mesesType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="meses"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Definición de tipo para longitud con restricciones -->
+  <xs:simpleType name="longitudType">
+    <xs:restriction base="xs:decimal">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="800"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Definición de tipo para peso derivado de longitudType -->
+  <xs:simpleType name="pesoType">
+    <xs:restriction base="longitudType">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="200"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Definición de tipo para dirección -->
+  <xs:complexType name="direccionType">
+    <!-- Definir elementos dentro de dirección -->
+    <xs:sequence>
+      <xs:element name="calle" type="xs:string"/>
+      <xs:element name="ciudad" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Definición de tipo para cliente -->
+  <xs:complexType name="clienteType">
+    <!-- Definir elementos dentro de cliente -->
+  </xs:complexType>
+
+</xs:schema>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="tiendas" type="tipoTiendas" />
+  <xs:complexType name="tipoTiendas">
+    <xs:sequence>
+      <xs:element name="tienda" maxOccurs="unbounded" type="tipoTienda">
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoTienda">
+    <!-- Ventajas: Permite poner todo en diferente orden. 
+            Inconvenientes: Nada mas puede haber 1. -->
+    <xs:all>
+      <xs:element name="nombre" type="xs:string" />
+      <xs:element name="regalos" type="tipoRegalos" />
+    </xs:all>
+    <xs:attribute name="cif" type="xs:string" use="required" />
+    <xs:attribute name="descuentosAplicables" type="listaDescuentos" />
+  </xs:complexType>
+  <xs:complexType name="tipoRegalo" mixed="true">
+    <xs:sequence>
+      <xs:element name="url" maxOccurs="unbounded"  />
+      <xs:element name="marca" type="tipoMarca" />
+    </xs:sequence>
+    <xs:attribute name="codigo" type="xs:string"/>
+    <xs:attribute name="precio" type="tipoPrecio" />
+    <xs:attribute name="iva" type="tipoIva" />
+    <xs:attribute name="descuento" type="tipoDescuento" />
+  </xs:complexType>
+  <xs:complexType name="tipoBombazo" mixed="true">
+    <xs:sequence>
+      <xs:element name="url" maxOccurs="unbounded" />
+      <xs:element name="marca" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+    <xs:attribute name="codigo" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="tipoMarca">
+    <!-- Ventajas: Permite elegir entre opciones mutuamente excluyentes. 
+            Inconvenientes: Puede ser limitante. -->
+    <xs:choice>
+      <xs:element name="mattel" type="vacio" />
+      <xs:element name="giochiPreziosi" type="vacio" />
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:complexType name="vacio"></xs:complexType>
+
+  <xs:complexType name="tipoRegalos">
+    <!-- Ventajas: Garantiza el orden de los elementos. 
+            Inconvenientes: Puede hacer el esquema más rígido. -->
+    <xs:sequence>
+      <xs:element name="regalo" type="tipoRegalo" />
+      <xs:element name="bombazo" type="tipoBombazo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="tipoDescuento10y15">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="15%" />
+      <xs:enumeration value="10%" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tipoDescuento20y25">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="20%" />
+      <xs:enumeration value="25%" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tipoDescuento">
+    <xs:union memberTypes="tipoDescuento10y15 tipoDescuento20y25" />
+  </xs:simpleType>
+
+  <xs:simpleType name="listaDescuentos">
+    <xs:list itemType="tipoDescuento" />
+  </xs:simpleType>
+  <xs:simpleType name="tipoPrecio">
+    <xs:restriction base="xs:float">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="10000" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tipoIva">
+    <xs:restriction base="tipoPrecio">
+      <xs:maxExclusive value="50" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

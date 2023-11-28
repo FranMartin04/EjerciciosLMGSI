@@ -3,11 +3,14 @@
     <head>
         <meta name="description"content="Descripci&oacute;n de esta p&aacute;gina web"/>
         <meta name="keywords" content="Palabras clave para que un buscador indexe esta p&aacute;gina"/>
-        <meta name="author" content="Francisco Javier Martín Corredera"/>
+        <meta name="author" content="Francisco Javier Mart&iacute;n Corredera"/>
         <style type="text/css">
             body{
 
                 background: #ababab;
+                margin: 30px;
+                line-height: 1.5em;
+                font-family: sans-serif;
             }
             h1{
                 color: #ff4d00;
@@ -18,9 +21,31 @@
             .h2Ropa{
                 color:#148cc0;
             }
-            .h3Telefonos{
-                color: aqua;
+            h3{
+                color: #f52505;
             }
+            .h2Ofertas{
+                color: #148cc0;
+            }
+            .h2Electronicos{
+                color:#148cc0;
+                border-radius: 10%;
+                background: #eded7b;
+                padding: 5px;
+            }
+            img:hover {
+                transform: scale(1.1);
+            }
+            table, th, td{
+                border: 1px solid #777777;
+            }
+            table{
+                border-collapse: collapse;
+            }
+            img{
+                border: 2px solid #585858;
+            }
+            
             
         </style>
     </head>
@@ -33,8 +58,41 @@
         <p>Descubre descuentos exclusivos en los últimos modelos de teléfonos inteligentes</p>
         <h2 class="h2Ropa">Ropa y accesorios</h2>
         <p>Renueva tu armario con nuestras increíbles ofertas en ropa y accesosrios de moda</p>
-        <h2>Ofertas destacadas</h2>
+        <h2 class="h2Ofertas">Ofertas destacadas</h2>
         <p><a href="#marcadorElectronicos">Electrónicos</a></p>
         <p><a href="#marcadorRopaYAccesorios">Ropa y accesorios</a></p>
+        <a name="marcadorElectronicos"></a> 
+        <h2 class="h2Electronicos">Electrónicos</h2>
+        <p>Descubre nuestras ofertas en electrónicos y tecnología avanzada</p>
+        <img src =https://l450v.alamy.com/450ves/dn5rw1/iconos-de-ordenadores-y-productos-electronicos-dn5rw1.jpg height="25%"/>
+        <h3>Tabletas</h3>
+        <p>¡Aprovechad los descuentos en las últimas tabletas!</p>
+        <h3>Teléfonos inteligentes</h3>
+        <p>Los mejores modelos de teléfonos inteligentes a precios irresistibles</p>
+        <a name="marcadorRopaYAccesorios"></a> 
+        <h2 class="h2Ropa">Ropa y accesorios</h2>
+        <p>Actualiza tu estilo con nuestras ofertas en ropa y accesorios de moda</p>
+        <img src = https://as2.ftcdn.net/v2/jpg/05/36/14/97/1000_F_536149715_1ISS1apIkiDBZgfwbYERwi1CeegLiOvd.jpg height="165px"/>
+        <table width="100%">
+            <caption>Ofertas Destacadas</caption>
+            <tr>
+                <th>Producto</th>
+                <th colspan="2">Descuento</th>
+            </tr>
+            <tr>
+                <td rowspan="2">Camisas</td>
+                <td>30%</td>
+                <td>¡Solo por hoy!</td>
+            </tr>
+            <tr>
+                <td colspan="2">Variedad de colores y tallas disponibles</td>
+            </tr>
+            <tr>
+            <td>Zapatos</td>
+            <td>20%</td>
+            <td>¡Compra dos pares y obtén un 10% adicional!</td>
+            </tr>
+        </table>
+        <p>Estas son solo algunas de las ofertas que tenemos para ti.¡No te pierdas nuestras increíbles promociones!</p>   
     </body>
 </html>

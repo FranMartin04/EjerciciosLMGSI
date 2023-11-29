@@ -4,29 +4,45 @@
 <head>
     <style>
         img {
-            height: 50px;
+            height: 100px;
+            margin: 50px;
+            border-radius: 10px;
+            border: #000000 solid;
         }
 
         table,
         th,
         td {
-            border: 1px solid #777777;
+            border: 5px solid #000000;
         }
 
-        table {
-            border-collapse: collapse;
+        th,
+        td {
+            border-radius: 5px;
+            text-align: center;
         }
 
-        th{
-            background-color: #6bfc3b;
-            
+        img:hover {
+            transform: scale(1.5);
+            transition: 1s;
+        }
+        .titulo{
+            text-decoration: double solid;
+            color: black;
+            font-size: 100%;
+        }
+        .enlaces{
+            color: #000000;
+            background-color: transparent;
+            text-decoration: underline;
+            bottom: 10px;
         }
     </style>
 </head>
 
 <body>
     <table width="100%">
-        <caption>Superhéroes de DC</caption>
+        <caption class="titulo">Superhéroes de DC</caption>
         <tr>
             <th>Superheroes</th>
             <th>Poderes</th>
@@ -39,7 +55,7 @@
             <td rowspan="2"><img
                     src="https://www.mundodeportivo.com/alfabeta/hero/2023/11/batman-es-un-heroe-iconico-de-dc-1.png?width=768&aspect_ratio=16:9&format=nowebp"
                     alt="Batman el caballero Oscuro"></td>
-            <td rowspan="2"><a href="https://es.wikipedia.org/wiki/Batman">Más sobre Batman</td>
+            <td rowspan="2"><a href="https://es.wikipedia.org/wiki/Batman"class="enlaces">Más sobre Batman</td>
         </tr>
         <tr>
             <td>Alias:El caballero Oscuro</td>
@@ -49,14 +65,14 @@
             <td>Vuelo, superfuerza, visión de rayos X</td>
             <td><img src="https://phantom-elmundo.unidadeditorial.es/ceb5ddfd91bd7ea95edd24ad7a228ce7/resize/1200/f/jpg/assets/multimedia/imagenes/2022/08/03/16595421832009.jpg"
                     alt="Superman"></td>
-            <td><a href="https://es.wikipedia.org/wiki/Superman">Más sobre Superman</td>
+            <td><a href="https://es.wikipedia.org/wiki/Superman" class="enlaces">Más sobre Superman</td>
         </tr>
         <tr>
             <td>Wonder Woman</td>
             <td>Fuerza sobrehumana, habilidades de lucha, lazos de la verdad</td>
             <td><img src="https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/media/image/2017/06/241142-wonder-woman-es-mejor-estreno-historia-directora.jpg?tf=3840x"
                     alt="Wonder Woman"></td>
-            <td><a href="https://es.wikipedia.org/wiki/Mujer_Maravilla">Más sobre Wonder Woman</td>
+            <td><a href="https://es.wikipedia.org/wiki/Mujer_Maravilla"class="enlaces">Más sobre Wonder Woman</td>
 
         </tr>
         <tr>
@@ -65,7 +81,7 @@
             <td rowspan="2"><img rowspan="2"
                     src="https://www.mundodeportivo.com/alfabeta/hero/2023/06/captura-de-pantalla-2023-06-06-175608.png?width=768&aspect_ratio=16:9&format=nowebp"
                     alt="Flash"></td>
-            <td rowspan="2"><a href="https://es.wikipedia.org/wiki/Flash_(historieta)">Más sobre Flash</td>
+            <td rowspan="2"><a href="https://es.wikipedia.org/wiki/Flash_(historieta)"class="enlaces">Más sobre Flash</td>
         </tr>
         <tr>
             <td>Miembro de la liga de la justicia</td>

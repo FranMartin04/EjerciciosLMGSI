@@ -1,0 +1,15 @@
+#banner img {
+    width: 100%;
+    height: 250px;
+    display: block;
+    text-align: center;
+}
+#menuOpciones{
+    text-align: center;
+    background-color: black;
+    color: white;
+}
+#menuOpciones li {
+        display: inline-block;
+        margin-right: 10px;
+    }

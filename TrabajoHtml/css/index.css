@@ -6,10 +6,24 @@
 }
 #menuOpciones{
     text-align: center;
-    background-color: black;
-    color: white;
+    background-color: #ffffff;
+    color: #000000;
 }
 #menuOpciones li {
         display: inline-block;
         margin-right: 10px;
-    }
+}
+body{
+    background-color: rgb(25, 24, 24);
+    color: white;
+}
+#logo{
+   text-align: center;
+}
+#historia{
+    display: flex;
+}
+.textCentrado{
+    text-align: center;
+}
+

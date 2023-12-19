@@ -1,19 +1,22 @@
+body {
+  margin: 0;
+}
+
 .flex-container {
   display: flex;
-  height: 100vh; 
+  flex-direction: column;
   border: 10px solid red;
   box-sizing: border-box;
-}
-body{
-  margin:0;
+  height:100vh;
+  justify-content: space-between;
 }
 
 .flex-container>div {
   color: #fff;
-  font-size: 100px;
+  font-size: 10px;
   text-align: center;
   text-shadow: 4px 4px 0 rgba(0, 0, 0, .1);
-  padding: 10px;
+  line-height: 25px;
 }
 
 .box1 {

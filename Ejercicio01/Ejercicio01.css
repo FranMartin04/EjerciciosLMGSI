@@ -1,0 +1,11 @@
+.flex-container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+  }
+  .flex-container > div {
+    text-align: center;
+    line-height: 75px;
+    font-size: 50px;
+    color: white;
+  }

@@ -3,7 +3,11 @@
 
 <head>
     <title>Inazuma Eleven</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sitio web de Inazuma Eleven">
+    <meta name="keywords" content="Inazuma Eleven, fútbol, anime, juegos">
+    <meta name="author" content="Francisco Javier Martín Corredera">
     <link href="css/index.css" rel="stylesheet" type="text/css" />
 </head>
 <header>
@@ -16,11 +20,21 @@
     <div id="menuOpciones">
         <nav>
             <ul>
-                <li>Inicio</li>
-                <li>Personajes</li>
-                <li>Temporadas y Capitulos</li>
-                <li>Videojuegos</li>
-                <li>Trucos</li>
+                <li><a href="index.html">Inicio</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Personajes</a>
+                    <div class="dropdown-content">
+                        <a href="mark.html">Mark Evans</a>
+                        <a href="axel.html">Axel Blaze</a>
+                        <a href="jude.html">Jude Sharp</a>
+                        <a href="shawn.html">Shawn Froste</a>
+                        <a href="kevin.html">Kevin Dragonfly</a>
+                        <a href="xavier.html">Xavier Foster</a>
+                        <a href="byron.html">Byron Love</a>
+                    </div>
+                </li>
+                <li><a href="temporada.html">Temporadas y Capitulos</a></li>
+                <li><a href="formulario.html">Unete a nosotros</a></li>
             </ul>
         </nav>
     </div>
@@ -31,7 +45,8 @@
         <div>
             <div>
                 <h1 class="textCentrado">Historia</h1>
-                <p>El personaje principal, Endo Mamoru/Satoru Endo/Mark Evans, él es el capitán y portero del club de
+                <p>El personaje principal, <span class="bold">Endo Mamoru/Satoru Endo/Mark Evans</span>, él es el
+                    capitán y portero del club de
                     fútbol
                     del Instituto Raimon. A pesar de su talento, su instituto carece de un auténtico equipo de fútbol y
                     los
@@ -57,10 +72,97 @@
             <img src="images/Mark_Evans.jpg" usemap="#image-map">
 
             <map name="image-map">
-                <area target="" alt="Mark Evans" title="Mark Evans" href="" coords="366,628,50,53" shape="rect">
+                <area target="" alt="Mark Evans" title="Mark Evans" href="https://es.wikipedia.org/wiki/Inazuma_Eleven"
+                    coords="366,628,50,53" shape="rect">
             </map>
         </div>
     </div>
+    <div>
+        <h2>Resumen De Algunos Personajes</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Equipo</th>
+                    <th>Edad</th>
+                    <th>Posición</th>
+                    <th>Supertécnicas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Mark Evans</td>
+                    <td>Raimon</td>
+                    <td>14 Años</td>
+                    <td>Portero</td>
+                    <td>
+                        <table class="nested-table">
+                            <thead>
+                                <tr>
+                                    <th>Ataque</th>
+                                    <th>Defensa</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Cabezazo Megatón</td>
+                                    <td>Parada Celestial</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Axel Blaze</td>
+                    <td>Raimon</td>
+                    <td>14 Años</td>
+                    <td>Delantero</td>
+                    <td>
+                        <table class="nested-table">
+                            <thead>
+                                <tr>
+                                    <th>Ataque</th>
+                                    <th>Regate</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Tornado De Fuego</td>
+                                    <td>Corte Flamígero</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Jude Sharp</td>
+                    <td>Royal Academy</td>
+                    <td>14 Años</td>
+                    <td>Mediocentro</td>
+                    <td>
+                        <table class="nested-table">
+                            <thead>
+                                <tr>
+                                    <th>Ataque</th>
+                                    <th>Regate</th>
+                                </tr>
+                </tr>
+                </thead>
+            <tbody>
+                <tr>
+                    <td>Pingüino Emperador Nº2</td>
+                    <td>Espegismo De Balón</td>
+                </tr>
+            </tbody>
+        </table>
+        </td>
+        </tr>
+        </tbody>
+        </table>
+    </div>
 </body>
+<footer>
+    <img src="images/pie_pag.jpg" id="pie">
+</footer>
 
 </html>

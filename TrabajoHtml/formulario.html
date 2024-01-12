@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Inazuma Eleven</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="css/fomulario.css" rel="stylesheet" type="text/css" />
+</head>
+<header>
+    <div id="banner">
+        <img src="images/banner.jpg" />
+    </div>
+</header>
+
+<body>
+    <div id="menuOpciones">
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Personajes</a>
+                    <div class="dropdown-content">
+                        <a href="mark.html">Mark Evans</a>
+                        <a href="axel.html">Axel Blaze</a>
+                        <a href="jude.html">Jude Sharp</a>
+                        <a href="shawn.html">Shawn Froste</a>
+                        <a href="kevin.html">Kevin Dragonfly</a>
+                        <a href="xavier.html">Xavier Foster</a>
+                        <a href="byron.html">Byron Love</a>
+                    </div>
+                </li>
+                <li><a href="temporada.html">Temporadas y Capitulos</a></li>
+                <li><a href="formulario.html">Unete a nosotros</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="logo">
+        <img src="images/Inazuma_Eleven.jpg" />
+    </div>
+    <h1 style="color: white;">Unete a Inazuma Eleven</h1>
+
+    <form id="inazumaForm">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="apellidos">Apellidos:</label>
+        <input type="text" id="apellidos" name="apellidos" required>
+
+        <label for="email">Correo Electrónico:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="telefono">Número de Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono" required>
+
+        <button type="button" onclick="enviarFormulario()">Enviar</button>
+        <button type="button" onclick="reiniciarFormulario()">Reiniciar</button>
+    </form>
+
+    <script>
+        function enviarFormulario() {
+            // Puedes personalizar esta función para procesar los datos del formulario
+            alert("Formulario enviado correctamente");
+        }
+
+        function reiniciarFormulario() {
+            document.getElementById("inazumaForm").reset();
+        }
+    </script>
+</body>
+<footer>
+    <img src="images/pie_pag.jpg" id="pie">
+</footer>

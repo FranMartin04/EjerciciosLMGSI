@@ -9,7 +9,25 @@
   <script src="https://kit.fontawesome.com/644796c36a.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="container-fluid text-center py-1" style="background-color: orange;">
+    <div class="d-flex align-items-center justify-content-center">
+        <div class="d-flex align-items-center me-3">
+            <i class="fa-brands fa-facebook-f fs-4 me-4"></i>
+            <i class="fa-brands fa-instagram fs-4 me-4"></i>
+            <i class="fa-solid fa-envelope fs-4 me-4"></i>
+            <i class="fa-brands fa-telegram fs-4 me-4"></i>
+            <i class="fa-brands fa-tiktok fs-4 me-4"></i>
+            <i class="fa-brands fa-twitter fs-4 me-4"></i>
+            <i class="fa-brands fa-youtube fs-4 me-4"></i>
+        </div>
+        <img src="logo.png" width="700px" class="ms-3">
+        <div class="ms-4">
+            <button class="btn me-3">Iniciar Sesión</button>
+            <button class="btn" style="background-color: rgb(1, 254, 161);">Hazte Suscriptor</button>
+        </div>
+    </div>
+    
+    
+    <div class="container-fluid text-center py-1" style="background-color: rgb(237, 118, 0);">
         <p class="mb-0 fs-5 text-white">-LA ACTUALIDAD DEL MAÑANA-</p>
     </div>
     <nav class="navbar navbar-expand-sm justify-content-center">
@@ -47,10 +65,16 @@
                         <a class="nav-link" href="javascript:void(0)">TIENDA</a>
                     </li>
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="text" placeholder="Search">
-                    <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
-                </form>
+                <div class="dropdown ms-5">
+                    <button class="btn" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <div class="dropdown-menu p-2" aria-labelledby="dropdownMenuButton">
+                        <form class="form-inline">
+                            <input class="form-control me-2" type="text" placeholder="Search">
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>

@@ -1,0 +1,41 @@
+// _colors.scss
+
+// Definición de colores
+$background-color: #f0f0f0;
+$text-color: #333;
+$promo-code-color: #3cff00;
+$button-background-color: #4567fe;
+
+// Mixin para estilos de texto con color variable
+@mixin text-styles($color) {
+  color: $color;
+  font-size: 16px;
+  // Otros estilos de texto según sea necesario
+}
+
+// Estilos específicos para textos
+.billing-address {
+  @include text-styles($text-color);
+}
+
+.your-cart {
+  @include text-styles($text-color);
+}
+
+.payment {
+  @include text-styles(#4285f4); // Color diferente para Payment
+}
+
+// Otros estilos de la página
+body {
+  background-color: $background-color;
+}
+
+.promo-code {
+  color: $promo-code-color;
+}
+
+.confirm-button {
+  background-color: $button-background-color;
+  color: #fff; // Color de texto para el botón de confirmación
+}

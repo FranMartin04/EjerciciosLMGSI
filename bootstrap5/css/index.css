@@ -1,3 +1,29 @@
+.billing-address {
+  color: #333;
+  font-size: 16px;
+}
 
+.your-cart {
+  color: #333;
+  font-size: 16px;
+}
+
+.payment {
+  color: #4285f4;
+  font-size: 16px;
+}
+
+body {
+  background-color: #f0f0f0;
+}
+
+.promo-code {
+  color: #3cff00;
+}
+
+.confirm-button {
+  background-color: #4567fe;
+  color: #fff;
+}
 
 /*# sourceMappingURL=index.css.map */

@@ -1,29 +1,38 @@
+@import 'colors';
 .billing-address {
-  color: #333;
-  font-size: 16px;
+  color: rgb(0, 0, 0);
+  font-size: 30px;
 }
 
 .your-cart {
-  color: #333;
-  font-size: 16px;
+  color: rgb(112, 112, 112);
+  font-size: 30px;
 }
 
 .payment {
-  color: #4285f4;
-  font-size: 16px;
+  color: rgb(0, 0, 0);
+  font-size: 30px;
 }
 
-body {
-  background-color: #f0f0f0;
+.body {
+  background-color: #ededed;
+}
+
+.num3 {
+  background-color: rgb(20, 18, 18);
 }
 
 .promo-code {
-  color: #3cff00;
+  color: #28a745;
 }
 
-.confirm-button {
+.btn-primary {
   background-color: #4567fe;
   color: #fff;
+}
+
+.btn-block {
+  width: 100%;
 }
 
 /*# sourceMappingURL=index.css.map */

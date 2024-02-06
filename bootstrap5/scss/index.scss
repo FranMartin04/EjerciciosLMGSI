@@ -1,4 +1,5 @@
 @import 'colors';
+
 // Mixin para estilos de texto con color variable
 @mixin text-styles($color) {
   color: $color;
@@ -11,7 +12,7 @@
 }
 
 .your-cart {
-  @include text-styles(rgb(112, 112, 112));// Color diferente para Your Cart
+  @include text-styles(rgb(112, 112, 112)); // Color diferente para Your Cart
 }
 
 .payment {
@@ -21,7 +22,8 @@
 .body {
   background-color: $background-color;
 }
-.num3{
+
+.num3 {
   background-color: rgb(20, 18, 18);
 }
 
@@ -29,11 +31,11 @@
   color: $promo-code-color;
 }
 
-.btn-primary {
+button.btn-custom {
   background-color: $button-background-color;
-  color: #fff;
-}
-.btn-block{
-  width: 100%;
+  color: white;
 }
 
+.btn-block {
+  width: 100%;
+}
